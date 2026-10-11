@@ -1,0 +1,14 @@
+services:
+  scopeline:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-4-6}
+      DATABASE_FILE: /data/scopeline.db
+    volumes:
+      - scopeline-data:/data
+
+volumes:
+  scopeline-data:
